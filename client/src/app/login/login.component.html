@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4 mt-5" style="border: 1px solid rgba(0,0,0,0.5);
+         border-radius: 10px; padding: 20px; background-color: rgb(219, 207, 207);">
+            <form [formGroup]="logForm" (ngSubmit)="logData()" >
+                <p>
+                    <input type="email" formControlName="email" placeholder="Enter Email" class="form-control">
+                </p>
+                <div *ngIf="e['email'].touched && e['email'].invalid" class="alert alert-danger">
+                   <div *ngIf="e['email'].errors && e['email'].errors['required']">Email is required </div>
+                </div>
+                <p>
+                    <input type="password" formControlName="password" placeholder="password" class="form-control">
+                </p>
+                <div *ngIf="e['password'].touched && e['password'].invalid" class="alert alert-danger">
+                    <div *ngIf="e['password'].errors && e['password'].errors['required']">Password is required </div>
+                 </div>
+                
+                <button type="submit" [disabled]="!logForm.valid" class="btn btn-outline-success">LogIn</button>
+            </form>
+            <span
+        >I don't have an account <a routerLink="/register">Register</a>
+      </span>
+        </div>
+        
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
+

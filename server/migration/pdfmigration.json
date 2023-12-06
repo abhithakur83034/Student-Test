@@ -1,0 +1,11 @@
+{
+    "pdf":{
+        "type":"String"
+    },
+    "tech":{
+        "type":"String"
+    },
+    "userId":{
+        "type":"String"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "image":{
+        "type":"String"
+    },
+    "name":{
+        "type":"String"
+    },
+    "mobile":{
+        "type":"String"
+    },
+    "email":{
+        "type":"String"
+    },
+    "password":{
+        "type":"String"
+    },
+    "cpassword":{
+        "type":"String"
+    },
+    "role":{
+        "type":"String"
+    }
+}

@@ -1,0 +1,29 @@
+<div class="container mt-5"  [ngSwitch]="isLoggedIn" >
+    <div class="row" *ngSwitchCase="true">
+        <div class="col-sm-12">
+            <div class="row"  style="background: cadetblue; text-align: center;" *ngIf="Role === 'user'">
+                <div class="col-sm-2" routerLink="" style="cursor: pointer;">Home</div>
+                <div class="col-sm-2"  (click)="record()"  style="cursor: pointer;">Your Record's</div>
+                <div class="col-sm-2"  (click)="schedule()"  style="cursor: pointer;">Set Schedule</div>
+                <div class="col-sm-2" routerLink="/account" style="cursor: pointer;">Profile</div>
+                <div class="col-sm-2"  (click)="logOut()"  style="cursor: pointer;">Logout</div>
+            </div>
+            <div class="row"  style="background: cadetblue; text-align: center;" *ngIf="Role === 'Author'">
+                <div class="col-sm-2" routerLink="" style="cursor: pointer;">Home</div>
+                <div class="col-sm-2" routerLink="/addtest" style="cursor: pointer;">Add</div>
+                <div class="col-sm-2" routerLink="/account" style="cursor: pointer;">Profile</div>
+                <div class="col-sm-2"  (click)="logOut()"  style="cursor: pointer;">Logout</div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngSwitchCase="false">
+        <div class="col-sm-12">
+            <div class="row"  style="background: cadetblue; text-align: center;">
+                <div class="col-sm-2" routerLink="" style="cursor: pointer;">Home</div>
+                <div class="col-sm-2" routerLink="/login" style="cursor: pointer;">Login</div>
+                <div class="col-sm-2" routerLink="/register" style="cursor: pointer;">Register</div>
+            </div>
+            
+        </div>
+    </div>
+</div>

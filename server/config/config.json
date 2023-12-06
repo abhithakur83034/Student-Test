@@ -1,0 +1,24 @@
+{
+    "database": {
+      "mysql": {
+        "host": "",
+        "user": "",
+        "database": "",
+        "password": "",
+        "port": ""
+      },
+      "oracle": {
+        "host": "",
+        "user": "",
+        "database": "",
+        "password": "",
+        "port": ""
+      },
+      "mongodb": {
+        "local": "mongodb://localhost:27017/online-exam",
+        "atlas": "",
+        "cluster": ""
+      }
+    }
+  }
+  

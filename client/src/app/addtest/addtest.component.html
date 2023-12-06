@@ -1,0 +1,298 @@
+<div class="container">
+  <div class="row">
+    <div style="display: flex; justify-content: space-around; cursor: pointer">
+      <h3 (click)="toggleSection('blog')">Add Blog</h3>
+      <h3 (click)="toggleSection('pdf')">Add Pdf</h3>
+      <h3 (click)="toggleSection('video')">Add Videos</h3>
+      <h3 (click)="toggleSection('ques')">Add questions</h3>
+    </div>
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-4 mt-5">
+       
+      
+      <!-- Question section*********************************************************************** -->
+      <div *ngIf="addques" style="border: 1px solid rgba(0, 0, 0, 0.5);   border-radius: 10px; padding: 20px; background-color: rgb(219, 207, 207);">
+        <form [formGroup]="techForm" (ngSubmit)="techData()">
+            <!-- <p>
+                <input
+                  type="file"
+                  formControlName="image"
+                  class="form-control"
+                  (change)="onFileChange($event)"
+                  accept="image/jpeg, image/png, image/jpg"
+                />
+              </p> -->
+              
+          <p>
+            <input
+              type="text"
+              formControlName="tech"
+              placeholder="Enter Technology Name"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="e['tech'].touched && e['tech'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="e['tech'].errors && e['tech'].errors['required']">
+              Technology Name is required
+            </div>
+          </div>
+          <p>
+            <input
+              type="text"
+              formControlName="qus"
+              placeholder="Add Question"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="e['qus'].touched && e['qus'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="e['qus'].errors && e['qus'].errors['required']">
+              Question is required
+            </div>
+          </div>
+          <p>
+            <input
+              type="text"
+              formControlName="ans1"
+              placeholder="Correct Answer"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="e['ans1'].touched && e['ans1'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="e['ans1'].errors && e['ans1'].errors['required']">
+              answer-1 is required
+            </div>
+          </div>
+          <p>
+            <input
+              type="text"
+              formControlName="ans2"
+              placeholder="Add Answer-2"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="e['ans2'].touched && e['ans2'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="e['ans2'].errors && e['ans2'].errors['required']">
+              answer-2 is required
+            </div>
+          </div>
+          <p>
+            <input
+              type="text"
+              formControlName="ans3"
+              placeholder="Add Answer-3"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="e['ans3'].touched && e['ans3'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="e['ans3'].errors && e['ans3'].errors['required']">
+              answer-3 is required
+            </div>
+          </div>
+          <p>
+            <input
+              type="text"
+              formControlName="ans4"
+              placeholder="Add Answer-4"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="e['ans4'].touched && e['ans4'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="e['ans4'].errors && e['ans4'].errors['required']">
+              answer-4 is required
+            </div>
+          </div>
+        
+        
+        
+        
+          <button
+            type="submit"
+            [disabled]="!techForm.valid"
+            class="btn btn-outline-success"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+
+ <!-- Question section*********************************************************************** -->
+
+
+ <!-- Blog section*********************************************************************** -->
+      <div *ngIf="addBlog" style="border: 1px solid rgba(0, 0, 0, 0.5);   border-radius: 10px; padding: 20px; background-color: rgb(219, 207, 207);">
+        <form [formGroup]="blogForm" (ngSubmit)="blogData()">
+          <p>
+            <input
+              type="file"
+              formControlName="image"
+              class="form-control"
+              (change)="onFileChange($event)"
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              formControlName="tech"
+              placeholder="Enter Technology Name"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="b['tech'].touched && b['tech'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="b['tech'].errors && b['tech'].errors['required']">
+              Technology Name is required
+            </div>
+          </div>
+          <p>
+            <input
+              type="text"
+              formControlName="blogstitle"
+              placeholder="Add Blog Title"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="b['blogstitle'].touched && b['blogstitle'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="b['blogstitle'].errors && b['blogstitle'].errors['required']">
+              Blog Title is required
+            </div>
+          </div>
+          <p>
+            <input
+              type="text"
+              formControlName="blogsbody"
+              placeholder="Add Blog Body"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="b['blogsbody'].touched && b['blogsbody'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="b['blogsbody'].errors && b['blogsbody'].errors['required']">
+              Blog Body is required
+            </div>
+          </div>
+          <button
+            type="submit"
+            [disabled]="!blogForm.valid"
+            class="btn btn-outline-success"
+          >
+            Submit
+          </button>
+        </form>
+        <br>
+        <h6 *ngIf="addpdf" style="cursor: pointer;" (click)="pdfUpload()" >upload pdf</h6>
+      </div>
+ <!-- Blog section*********************************************************************** -->
+
+ <!-- PDF section*********************************************************************** -->
+      <div *ngIf="addpdf" style="border: 1px solid rgba(0, 0, 0, 0.5);   border-radius: 10px; padding: 20px; background-color: rgb(219, 207, 207);">
+        <form [formGroup]="pdfForm" (ngSubmit)="pdfUpload()">
+          <p>
+            <input
+              type="file"
+              formControlName="pdf"
+              class="form-control"
+              (change)="onFileChange($event)"
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              formControlName="tech"
+              placeholder="Enter Technology Name"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="v['tech'].touched && v['tech'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="v['tech'].errors && v['tech'].errors['required']">
+              Technology Name is required
+            </div>
+          </div>
+          <button
+            type="submit"
+            [disabled]="!pdfForm.valid"
+            class="btn btn-outline-success"
+          >
+            Add pdf
+          </button>
+        </form>
+      </div>
+
+ <!-- pdf section*********************************************************************** -->
+
+
+ <!-- Video section*********************************************************************** -->
+      <div *ngIf="addvideo" style="border: 1px solid rgba(0, 0, 0, 0.5);   border-radius: 10px; padding: 20px; background-color: rgb(219, 207, 207);">
+        <form [formGroup]="videoForm" (ngSubmit)="videoData()">
+          <p>
+            <input
+              type="file"
+              formControlName="video"
+              class="form-control"
+              accept="video/*"
+              (change)="onFileChange($event)"
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              formControlName="tech"
+              placeholder="Enter Technology Name"
+              class="form-control"
+            />
+          </p>
+          <div
+            *ngIf="p['tech'].touched && p['tech'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="p['tech'].errors && p['tech'].errors['required']">
+              Technology Name is required
+            </div>
+          </div>
+          <button
+            type="submit"
+            [disabled]="!videoForm.valid"
+            class="btn btn-outline-success"
+          >
+            Submit Video
+          </button>
+        </form>
+      </div>
+ <!-- Video section*********************************************************************** -->
+
+
+    </div>
+
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+
+<app-footer></app-footer>

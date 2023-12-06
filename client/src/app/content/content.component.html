@@ -1,0 +1,177 @@
+<div class="container">
+  <div class="row" [ngSwitch]="Role">
+
+
+    <!-- video section ***************************************************************************** -->
+    <div *ngSwitchCase="'user'">
+      <div
+      class="col-lg-12"
+      style="
+        border: 3px solid rgba(0, 0, 0, 0.5);
+        height: 400px;
+        overflow-y: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 10px;
+      "
+    >
+      <div
+        *ngFor="let video of videoForUser"
+        style="flex: 0 0 30%; box-sizing: border-box; margin-right: 10px"
+      >
+        <video width="100%" height="400" controls>
+          <source
+            src="http://localhost:9000/img/{{ video.video }}"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+       <!-- video section ***************************************************************************** -->
+
+   <!-- blog section ***************************************************************************** -->
+
+   <div class="col-sm-12 mt-4" style="border: 3px solid rgba(0, 0, 0, 0.5)">
+    <!-- <h1>Blog Section</h1> -->
+    <div *ngFor="let blog of blogForUser">
+      <h2>{{ blog.blogtitle }}</h2>
+      <h6>{{ blog.blogbody }}</h6>
+    </div>
+  </div>
+
+
+  <!-- blog section ***************************************************************************** -->
+  
+  
+  
+  
+  
+  <!-- qus & pdf section ***************************************************************************** -->
+ 
+ 
+  
+<p>
+  <span style="cursor: pointer; color: blue;" (click)="viewpdf()" >pdf</span>
+</p>
+ 
+
+  <button class="btn btn-outline-info mt-3" style="color: black;" (click)="startTest()" >Start Test</button>
+ 
+ 
+  <!-- qus & pdf section ***************************************************************************** -->
+
+
+
+
+
+
+  
+  </div>
+
+
+
+   
+
+
+    <div *ngSwitchCase="'Author'">
+      <div
+        class="col-lg-12"
+        style="
+          border: 3px solid rgba(0, 0, 0, 0.5);
+          height: 400px;
+          overflow-y: auto;
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          padding: 10px;
+        "
+      >
+        <div
+          *ngFor="let video of filterVideo"
+          style="flex: 0 0 30%; box-sizing: border-box; margin-right: 10px"
+        >
+          <video width="100%" height="400" controls>
+            <source
+              src="http://localhost:9000/img/{{ video.video }}"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="col-sm-12 mt-4" style="border: 3px solid rgba(0, 0, 0, 0.5)">
+        <!-- <h1>Blog Section</h1> -->
+        <div *ngFor="let blog of filterBlog">
+          <h2>{{ blog.blogtitle }}</h2>
+          <h6>{{ blog.blogbody }}</h6>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <ng-template #questionContent let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">All Questions</h4>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="d('Cross click')"
+            ></button>
+          </div>
+          <div
+            class="modal-body"
+            *ngFor="let material of filterTech; let i = index"
+          >
+            <h2>{{ i + 1 }}. {{ material.qus }}</h2>
+            <p>
+              <span style="font-size: 20px">a.</span> {{ material.answer }}
+              <span>👈</span>
+            </p>
+            <p><span style="font-size: 20px">b.</span> {{ material.ans2 }}</p>
+            <p><span style="font-size: 20px">c.</span> {{ material.ans3 }}</p>
+            <p><span style="font-size: 20px">d.</span> {{ material.ans4 }}</p>
+          </div>
+        </ng-template>
+
+        <span
+          style="cursor: pointer; color: blue"
+          (click)="open(questionContent)"
+          >Check Questions</span
+        >
+      </div>
+
+      <div class="col-sm-12">
+        <ng-template #pdfContent let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="d('Cross click')"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <ng-container *ngFor="let pdf of Pdf">
+              <!-- <h2>{{ pdfs }}</h2> -->
+              <pdf-viewer [src]="url + pdf.pdf"
+              [render-text]="true"
+              [original-size]="false"
+              style="width: 400px; height: 500px"
+  ></pdf-viewer>
+              <hr />
+            </ng-container>
+          </div>
+        </ng-template>
+
+        <span style="cursor: pointer; color: blue" (click)="openpdf(pdfContent)"
+          >PDFs</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

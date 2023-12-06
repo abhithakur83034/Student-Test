@@ -1,0 +1,66 @@
+<div *ngIf="singleProfiles">
+
+    <h1  style="text-align: center; color: rgb(80, 57, 27);" >Hey <span style="color:red;">{{singleProfiles.name | uppercase}}</span> </h1>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-4"></div>
+      
+          <div class="col-sm-4">
+            <form  [formGroup]="userProfile">
+              <div style="display: flex; justify-content: space-around;">
+                <!-- Show the first image if it exists -->
+                <img
+                    src="http://localhost:9000/img/{{ singleProfiles.image }}"
+                    alt="User Image"
+                    style="width: 150px; height: 150px; border-radius: 50%; object-fit: fill;"
+                />
+            </div>
+            
+              
+    
+              <p>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="form-control"
+                  readonly
+                  placeholder="Enter Name"
+                />
+              </p>
+              
+              <p>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  readonly
+                  placeholder="Enter Email"
+                />
+              </p>
+             
+              <p>
+                <input
+                  type="number"
+                  formControlName="mobile"
+                  class="form-control"
+                  readonly
+                  placeholder="Enter mobile"
+                />
+              </p>
+              <button type="submit" class="btn btn-outline-info form-control" (click)="editPro(userData)">Edit Profile</button>
+            </form>
+          </div>
+      
+          <div class="col-sm-4"></div>
+        </div>
+      </div>
+      
+    </div>
+    <app-footer></app-footer>
+
+
+
+
+
+
+

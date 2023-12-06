@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4 mt-5" style="border: 1px solid rgba(0,0,0,0.5);
+         border-radius: 10px; padding: 20px; background-color: rgb(219, 207, 207);">
+            <form [formGroup]="regForm" (ngSubmit)="regData()" >
+                <label for="name">Name</label>  
+
+                <p>
+                    <input type="text" formControlName="name" placeholder="Enter name" class="form-control">
+                </p>
+                <div *ngIf="e['name'].touched && e['name'].invalid" class="alert alert-danger">
+                   <div *ngIf="e['name'].errors && e['name'].errors['required']">Name is required </div>
+                </div>
+                <label for="mobile">Mobile</label> 
+                <p>
+                    <input type="number" formControlName="mobile" placeholder="Enter mobile" class="form-control">
+                </p>
+                <div *ngIf="e['mobile'].touched && e['mobile'].invalid" class="alert alert-danger">
+                   <div *ngIf="e['mobile'].errors && e['mobile'].errors['required']">Mobile is required </div>
+                </div>
+                <label for="email">Email:</label> 
+                <p>
+                    <input type="email" formControlName="email" placeholder="Enter Email" class="form-control">
+                </p>
+                <div *ngIf="e['email'].touched && e['email'].invalid" class="alert alert-danger">
+                   <div *ngIf="e['email'].errors && e['email'].errors['required']">Email is required </div>
+                </div>
+                <label for="password">Password</label> 
+                <p>
+                    <input type="password" formControlName="password" placeholder="password" class="form-control">
+                </p>
+                <div *ngIf="e['password'].touched && e['password'].invalid" class="alert alert-danger">
+                    <div *ngIf="e['password'].errors && e['password'].errors['required']">Password is required </div>
+                 </div>
+                 <label for="confirm-password">Confirm Password</label>
+                <p>
+                    <input type="password" formControlName="cpassword" placeholder="Enter confirm password" class="form-control">
+                </p>
+                <div *ngIf="e['cpassword'].touched && e['cpassword'].invalid" class="alert alert-danger">
+                    <div *ngIf="e['cpassword'].errors && e['cpassword'].errors['required']">Confirm Password is required </div>
+                 </div>
+
+                <p>
+                    <label for="website">Choose Role:</label>  
+                    <select formControlName="role"  class="form-control">  
+                        <option disabled>Select Website</option>  
+                        <option>Author</option>  
+                        <option>user</option>  
+                    </select>
+                </p>
+                <div *ngIf="e['role'].touched && e['role'].invalid" class="alert alert-danger">
+                    <div *ngIf="e['role'].errors && e['role'].errors['required']">Confirm Password is required </div>
+                 </div>
+
+                 <p>
+                    <button type="submit" [disabled]="!regForm.valid" class="btn btn-outline-success">regIn</button>
+
+                 </p>
+            </form>
+            <span>I have account <a routerLink="/login">login</a> </span>
+        </div>
+        
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
+
+

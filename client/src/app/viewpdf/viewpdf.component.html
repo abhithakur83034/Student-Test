@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <ng-container *ngFor="let pdf of Pdf">
+        <pdf-viewer
+          [src]="url + pdf.pdf"
+          [render-text]="true"
+          [original-size]="true"
+          style="width: 400px; height: 400px"
+        ></pdf-viewer>
+        <div style="display: flex; justify-content: center">
+          <button
+            class="btn btn-outline-info"
+            style="cursor: pointer; color: black"
+            (click)="download(pdf.pdf)"
+          >
+            Download
+          </button>
+        </div>
+        <hr />
+      </ng-container>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+
+<app-footer></app-footer>

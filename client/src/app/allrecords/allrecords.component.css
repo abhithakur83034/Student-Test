@@ -1,0 +1,12 @@
+.text{
+  background: linear-gradient(75deg,red,rgb(11, 216, 11),orange);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+
+.texts{
+  background: linear-gradient(139deg, rgb(255, 0, 255), rgb(11, 59, 216),rgb(197, 157, 82));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}

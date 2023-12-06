@@ -1,0 +1,17 @@
+{
+    "image":{
+        "type":"String"
+    },
+    "tech":{
+        "type":"String"
+    },
+    "blogtitle":{
+        "type":"String"
+    },
+    "blogbody":{
+        "type":"String"
+    },
+    "userId":{
+        "type":"String"
+    }
+}

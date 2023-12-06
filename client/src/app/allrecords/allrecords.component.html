@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <div style="width: 300px">
+        <input
+          type="date"
+          id="date"
+          class="form-control"
+          (change)="onDateChange($event)"
+        />
+    </div>
+
+        <div *ngIf="filterDataByDate">
+          <div *ngIf="filterDataByDate.length === 0">
+            <h3 class="texts">There is no record's on {{selectedDate}} ..</h3>
+        </div>
+          <div *ngIf="filterDataByDate.length > 0">
+            <div *ngFor="let item of filterDataByDate let i = index">
+                <div>
+                    <h3> {{i+1}} {{item.qus}}</h3>
+                    <div style="display: flex;" ><b>ans.</b><h6>{{item.answer}}</h6></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6" *ngIf="filterDate">
+      <div>
+        <h1 class="text">Your Today's result are...</h1>
+      </div>
+      <div style="display: flex">
+        <h4 class="texts">Your Correct Answer's :</h4>
+        <h4 class="text">{{ filterDate.length }}</h4>
+      </div>
+      <div>
+        <button
+          class="btn btn-outline-info"
+          *ngIf="!show"
+          (click)="toggleAnswer('show')"
+        >
+          Show answer
+        </button>
+        <div *ngIf="show">
+          <button class="btn btn-outline-danger" (click)="toggleAnswer('hide')">
+            Hide answer
+          </button>
+          <div *ngFor="let filter of filterDate; let i = index">
+            <h3>{{ i + 1 }} {{ filter.qus }}</h3>
+            <div>
+              <b>ans. </b>
+              <span style="font-size: 18px"> {{ filter.answer }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,11 @@
+{
+    "video":{
+        "type":"String"
+    },
+    "tech":{
+        "type":"String"
+    },
+    "userId":{
+        "type":"String"
+    }
+}

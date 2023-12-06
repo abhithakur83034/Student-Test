@@ -1,0 +1,11 @@
+
+
+# Ignore node_modules directory
+/client/node_modules
+/server/node_modules
+
+# Ignore .vscode directory and its contents
+/client/.vscode/*
+
+# Ignore angular directory and its contents
+/client/.angular

@@ -1,0 +1,11 @@
+{
+    "dateTime":{
+        "type":"String"
+    },
+    "Technologies":{
+        "type":"String"
+    },
+    "userId":{
+        "type":"String"
+    }
+}

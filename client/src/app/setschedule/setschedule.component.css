@@ -1,0 +1,6 @@
+.text{
+    background: linear-gradient(75deg,red,rgb(11, 216, 11),orange);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-align: center;
+  }

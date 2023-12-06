@@ -1,0 +1,55 @@
+<div *ngIf="singlProfile">
+
+    <h1  style="text-align: center; color: rgb(80, 57, 27);" >Hey <span style="color:red;">{{singlProfile.name}}</span> </h1>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-4"></div>
+      
+          <div class="col-sm-4" >
+            <form  [formGroup]="edituserProfile" (ngSubmit)="editForm()">
+                <div style="position: relative; display: inline-block;">
+                    <input type="file" hidden id="fileInput" (change)="onFileChange($event)" class="form-control" />
+                    <label for="fileInput" style="cursor: pointer;">
+                      <span>🗂</span>
+                    </label>
+                  </div>
+                  
+                  <img src="http://localhost:9000/img/{{singlProfile.image}}" alt="Product Image" style="max-width: 100px; height: 100px; border-radius: 50%; object-fit: fill;">
+        
+    
+              <p>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="form-control"
+                  placeholder="Enter Name"
+                />
+              </p>
+              
+              <p>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Enter Email"
+                />
+              </p>
+             
+              <p>
+                <input
+                  type="number"
+                  formControlName="mobile"
+                  class="form-control"
+                  placeholder="Enter mobile"
+                />
+              </p>
+              <button type="submit" class="btn btn-outline-info form-control">Edit Profile</button>
+            </form>
+          </div>
+      
+          <div class="col-sm-4"></div>
+        </div>
+      </div>
+      
+    </div>
+    <app-footer></app-footer>

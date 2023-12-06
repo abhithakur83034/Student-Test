@@ -1,0 +1,41 @@
+<div class="container-fluid" style="align-items: center">
+  <div class="row" [ngSwitch]="Role">
+    <div class="col-sm-12" *ngSwitchCase="'user'">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <div *ngIf="showmat">
+            <div class="row">
+              <div class="col-sm-12 cl" *ngFor="let show of showmat">
+                  <div class="box" (click)="goToContent(show)" >{{ show | uppercase }}</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+    <div class="col-sm-12" *ngSwitchCase="'Author'">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <div *ngIf="showmat">
+            <div class="row">
+              <div class="col-sm-12 cl" *ngFor="let show of showmat">
+                  <div class="box" (click)="goToContent(show)" >{{ show | uppercase }}</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+
+<!-- *ngFor="let show of showmat" -->

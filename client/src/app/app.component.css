@@ -1,0 +1,5 @@
+.text{
+    background: linear-gradient(90deg, red,rgb(8, 190, 8),rgb(38, 38, 219));
+    color: transparent;
+    background-clip: text;
+}

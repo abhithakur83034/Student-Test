@@ -1,0 +1,43 @@
+.container-fluid {
+    align-items: center;
+    justify-content: center;
+  
+  }
+.rw{
+    align-items: center;
+}
+
+  .cl {
+    padding: 20px;
+    background-color: #ddd;
+    text-align: center;
+    transition: background-color 0.3s;
+    height: 150px;
+    width: 200px;
+    margin: 10px;
+  }
+
+  .cl:hover {
+    background-color: #aaa;
+    /* transform: scale(1.05); */
+  }
+
+  /* .r-box{
+    display:flex;
+  } */
+
+  .box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .box:hover {
+    transform: scale(1.09);
+    filter: brightness(200);
+    font-size: medium;
+    font-weight: bolder;
+    filter: drop-shadow(10px, 10px, 10px, rgba(0, 0, 0, 0.5));
+  }
+  
