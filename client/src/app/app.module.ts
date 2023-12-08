@@ -21,7 +21,6 @@ import { ViewpdfComponent } from './viewpdf/viewpdf.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { AllrecordsComponent } from './allrecords/allrecords.component';
 import { SetscheduleComponent } from './setschedule/setschedule.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +36,7 @@ import { SetscheduleComponent } from './setschedule/setschedule.component';
     ViewpdfComponent,
     EditprofileComponent,
     AllrecordsComponent,
-    SetscheduleComponent
+    SetscheduleComponent,
   ],
   imports: [
     BrowserModule,

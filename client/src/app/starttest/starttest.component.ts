@@ -33,7 +33,6 @@ export class StarttestComponent implements OnInit {
 
 
 
-
   url: any = 'http://localhost:9000/img/';
   pdfurl: any = 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf';
 
@@ -96,7 +95,9 @@ export class StarttestComponent implements OnInit {
       console.log('Selected Answers:', this.selectedAnswers);
 
       this.checkans = this.qusForUser.filter((item: any, index: number) => {
-        return item.answer === this.selectedAnswers[index];
+        console.log(item);
+        
+        return item.correctAns === this.selectedAnswers[index];
       });
 
       console.log('Correct Answers:', this.checkans);
@@ -137,10 +138,16 @@ export class StarttestComponent implements OnInit {
       );
       console.log('from start', this.qusForUser);
 
-      this.correctAns = this.qusForUser.map((item: any) => item.answer);
+      this.correctAns = this.qusForUser.map((item: any) => item.correctAns);
       console.log('Correct Answers', this.correctAns);
     });
   }
+
+
+  // isCorrectAnswer(correctAns: string, currentOption: string): boolean {
+  //   return correctAns === currentOption;
+  // }
+  
 
   toggleAnswer(questionIndex: number, action: 'show' | 'hide') {
     this.qusForUser[questionIndex].showans = action === 'show';

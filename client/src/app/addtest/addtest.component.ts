@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators,FormArray } from '@angular/forms';
 import { SubjectService } from '../services/subject.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class AddtestComponent implements OnInit {
   addques: any;
   addpdf: any;
 
-  constructor(private userData: SubjectService) {
+  constructor(private userData: SubjectService,private formBuilder: FormBuilder) {
     this.user = localStorage.getItem('user');
     this.userDetails = this.user ? JSON.parse(this.user) : null;
     this.userId = this.userDetails._id;
@@ -32,10 +32,8 @@ export class AddtestComponent implements OnInit {
       // image: new FormControl('', [Validators.required]),
       tech: new FormControl('', [Validators.required]),
       qus: new FormControl('', [Validators.required]),
-      ans1: new FormControl('', [Validators.required]),
-      ans2: new FormControl('', [Validators.required]),
-      ans3: new FormControl('', [Validators.required]),
-      ans4: new FormControl('', [Validators.required]),
+      answers: new FormArray([]),
+      correctans: new FormControl('', [Validators.required]),
     });
 
     this.videoForm = new FormGroup({
@@ -70,6 +68,17 @@ export class AddtestComponent implements OnInit {
   get p() {
     return this.pdfForm.controls;
   }
+  get answersArray() {
+    return this.techForm.get('answers') as FormArray;
+  }
+
+  addAnswer() {
+    this.answersArray.push(this.formBuilder.control('', [Validators.required]));
+  }
+
+  removeAnswer(index: number) {
+    this.answersArray.removeAt(index);
+  }
 
   onFileChange(event: any) {
     this.fileInp = event.target.files[0];
@@ -78,20 +87,9 @@ export class AddtestComponent implements OnInit {
 
   techData() {
     console.log(this.techForm.value);
-    let FORMDATA = this.techForm.value;
-    console.log(FORMDATA);
+    this.techForm.value.userId =this.userId;
 
-    let formData = new FormData();
-    // formData.set('image', this.fileInp);
-    formData.set('tech', FORMDATA.tech);
-    formData.set('qus', FORMDATA.qus);
-    formData.set('ans1', FORMDATA.ans1);
-    formData.set('ans2', FORMDATA.ans2);
-    formData.set('ans3', FORMDATA.ans3);
-    formData.set('ans4', FORMDATA.ans4);
-    formData.set('userId', this.userId);
-
-    this.userData.addMat(formData).subscribe({
+    this.userData.addMat(this.techForm.value).subscribe({
       next: (res: any) => {
         console.log(res);
       },

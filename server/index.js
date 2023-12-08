@@ -19,5 +19,5 @@ server.listen(PORT,()=>{
      }).then(()=>{
         console.log('server connected with database')
     }).catch((error)=>{
-        console.log("error in connecting with DB :",error)
+        console.log("error in connecting with DB : " , error)
 })})

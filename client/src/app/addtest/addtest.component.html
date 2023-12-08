@@ -56,68 +56,45 @@
               Question is required
             </div>
           </div>
-          <p>
-            <input
-              type="text"
-              formControlName="ans1"
-              placeholder="Correct Answer"
-              class="form-control"
-            />
-          </p>
-          <div
-            *ngIf="e['ans1'].touched && e['ans1'].invalid"
-            class="alert alert-danger"
-          >
-            <div *ngIf="e['ans1'].errors && e['ans1'].errors['required']">
-              answer-1 is required
+          <div formArrayName="answers">
+            <div *ngFor="let answerControl of answersArray.controls; let i = index">
+              <p>
+                <input
+                  type="text"
+                  [formControlName]="i"
+                  placeholder="Answer {{ i + 1 }}"
+                  class="form-control"
+                />
+              </p>
+              <div
+                *ngIf="answerControl.touched && answerControl.invalid"
+                class="alert alert-danger"
+              >
+                <div *ngIf="answerControl.errors && answerControl.errors['required']">
+                  Answer is required
+                </div>
+              </div>
+              <button type="button" (click)="removeAnswer(i)">Remove Answer</button>
             </div>
           </div>
+          
+          
+          <button type="button" (click)="addAnswer()">Add Answer</button>
+      
           <p>
             <input
               type="text"
-              formControlName="ans2"
-              placeholder="Add Answer-2"
+              formControlName="correctans"
+              placeholder="Add Correct Ans"
               class="form-control"
             />
           </p>
           <div
-            *ngIf="e['ans2'].touched && e['ans2'].invalid"
+            *ngIf="e['correctans'].touched && e['correctans'].invalid"
             class="alert alert-danger"
           >
-            <div *ngIf="e['ans2'].errors && e['ans2'].errors['required']">
-              answer-2 is required
-            </div>
-          </div>
-          <p>
-            <input
-              type="text"
-              formControlName="ans3"
-              placeholder="Add Answer-3"
-              class="form-control"
-            />
-          </p>
-          <div
-            *ngIf="e['ans3'].touched && e['ans3'].invalid"
-            class="alert alert-danger"
-          >
-            <div *ngIf="e['ans3'].errors && e['ans3'].errors['required']">
-              answer-3 is required
-            </div>
-          </div>
-          <p>
-            <input
-              type="text"
-              formControlName="ans4"
-              placeholder="Add Answer-4"
-              class="form-control"
-            />
-          </p>
-          <div
-            *ngIf="e['ans4'].touched && e['ans4'].invalid"
-            class="alert alert-danger"
-          >
-            <div *ngIf="e['ans4'].errors && e['ans4'].errors['required']">
-              answer-4 is required
+            <div *ngIf="e['correctans'].errors && e['correctans'].errors['required']">
+              correctans is required
             </div>
           </div>
         

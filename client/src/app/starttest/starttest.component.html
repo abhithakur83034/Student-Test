@@ -4,43 +4,32 @@
 
  <div class="container">
   <div class="row">
-      <div class=" col-sm-12 modal-body" *ngFor="let material of qusForUser; let i = index">
-        <h2>{{ i + 1 }}. {{ material.qus }}</h2>
-  
-        <div class="form-check">
-          <input type="radio" class="form-check-input" name="{{i}}" id="{{i}}a" (change)="onSelectAnswer(i, material.answer)">
-          <label class="form-check-label" for="{{i}}a">
-            <span style="font-size: 20px">a.</span> {{ material.answer }}
-          </label>
+    <div class="col-sm-12 modal-body" *ngFor="let material of qusForUser; let i = index">
+      <h2>{{ i + 1 }}. {{ material.qus }}</h2>
+    
+      <div class="form-check" *ngFor="let option of material.answers; let j = index">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="{{i}}"
+          id="{{i}}{{j}}"
+          (change)="onSelectAnswer(i, option)"
+        />
+        <label class="form-check-label" for="{{i}}{{j}}">
+          <span style="font-size: 20px">{{option}}</span>
+          <!-- <span *ngIf="isCorrectAnswer(material.correctAns, option)"></span> -->
+        </label>
+      </div>
+    
+      <div>
+        <button *ngIf="!material.showans" (click)="toggleAnswer(i, 'show')">Show Answer</button>
+        <div *ngIf="material.showans">
+          <button (click)="toggleAnswer(i, 'hide')">Hide Answer</button>
+          <p style="font-size: 20px;">{{ material.correctAns }}</p>
         </div>
-  
-        <div class="form-check">
-          <input type="radio" class="form-check-input" name="{{i}}" id="{{i}}b" (change)="onSelectAnswer(i, material.ans2)">
-          <label class="form-check-label" for="{{i}}b">
-            <span style="font-size: 20px">b.</span> {{ material.ans2 }}
-          </label>
-        </div>
-  
-        <div class="form-check">
-          <input type="radio" class="form-check-input" name="{{i}}" id="{{i}}c" (change)="onSelectAnswer(i, material.ans3)">
-          <label class="form-check-label" for="{{i}}c">
-            <span style="font-size: 20px">c.</span> {{ material.ans3 }}
-          </label>
-        </div>
-  
-        <div class="form-check">
-          <input type="radio" class="form-check-input" name="{{i}}" id="{{i}}d" (change)="onSelectAnswer(i, material.ans4)">
-          <label class="form-check-label" for="{{i}}d">
-            <span style="font-size: 20px">d.</span> {{ material.ans4 }}
-          </label>
-        </div>
-        <div>
-          <button *ngIf="!material.showans" (click)="toggleAnswer(i, 'show')">Show Answer</button>
-          <div *ngIf="material.showans">
-            <button (click)="toggleAnswer(i, 'hide')">Hide Answer</button>
-              <p style="font-size: 20px;">{{ material.answer }}</p>
-          </div>
-        </div>
+      </div>
+    
+    
       </div>
       <div class="col-sm-12" *ngIf="qusForUser">
         <button type="button" class="btn btn-success mt-5" (click)="onSubmit()">Submit</button>
@@ -52,3 +41,10 @@
   
 
 <app-footer></app-footer>
+
+
+
+
+
+
+

@@ -34,10 +34,8 @@ const add = async (req, res) => {
       // image: req.file.filename,
       tech: req.body.tech,
       qus: req.body.qus,
-      answer: req.body.ans1,
-      ans2: req.body.ans2,
-      ans3: req.body.ans3,
-      ans4: req.body.ans4,
+      answers: req.body.answers,
+      correctAns: req.body.correctans,
       userId: req.body.userId,
     };
     const data = await AddMaterialController.insertMany(addData);
