@@ -114,10 +114,14 @@ showQues(){
     this.filterTech = this.filterAuthor.filter(
       (item: any) => item.tech === this.techName
     );
-    // console.log("ques",this.filterTech);
+    console.log("ques",this.filterTech);
   });
 
 }
+
+ isCorrectAnswer(correctAns: string, currentOption: string): boolean {
+    return correctAns === currentOption;
+  }
 
 
 showVideo(){

@@ -22,9 +22,9 @@
       </div>
     
       <div>
-        <button *ngIf="!material.showans" (click)="toggleAnswer(i, 'show')">Show Answer</button>
+        <button *ngIf="!material.showans" (click)="toggleAnswer(i, 'show')" class="btn btn-outline-success" >Show Answer</button>
         <div *ngIf="material.showans">
-          <button (click)="toggleAnswer(i, 'hide')">Hide Answer</button>
+          <button (click)="toggleAnswer(i, 'hide')" class="btn btn-outline-danger" >Hide Answer</button>
           <p style="font-size: 20px;">{{ material.correctAns }}</p>
         </div>
       </div>

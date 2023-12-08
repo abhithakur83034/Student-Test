@@ -121,7 +121,7 @@
               (click)="d('Cross click')"
             ></button>
           </div>
-          <div
+          <!-- <div
             class="modal-body"
             *ngFor="let material of filterTech; let i = index"
           >
@@ -133,7 +133,24 @@
             <p><span style="font-size: 20px">b.</span> {{ material.ans2 }}</p>
             <p><span style="font-size: 20px">c.</span> {{ material.ans3 }}</p>
             <p><span style="font-size: 20px">d.</span> {{ material.ans4 }}</p>
-          </div>
+          </div> -->
+
+          <div class="col-sm-12 modal-body" *ngFor="let material of filterTech; let i = index">
+            <h2>{{ i + 1 }}. {{ material.qus }}</h2>
+          
+            <div class="form-check" *ngFor="let option of material.answers; let j = index">
+              <label for="{{i}}{{j}}">
+                <span style="font-size: 20px">{{option}}</span>
+                <span *ngIf="isCorrectAnswer(material.correctAns, option)" style="color: green; font-size: 15px; margin-left: 10px;" >(Correct Answer)</span>
+              </label>
+            </div>
+          
+           
+          
+          
+            </div>
+
+
         </ng-template>
 
         <span

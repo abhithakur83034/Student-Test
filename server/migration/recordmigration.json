@@ -1,29 +1,24 @@
 {
-    "ansBy":{
-        "type":"String"
-    },
-    "tech":{
-        "type":"String"
-    },
-    "qus":{
-        "type":"String"
-    },
-    "answer":{
-        "type":"String"
-    },
-    "ans2":{
-        "type":"String"
-    },
-    "ans3":{
-        "type":"String"
-    },
-    "ans4":{
-        "type":"String"
-    },
-    "userId":{
-        "type":"String"
-    },
-    "date":{
-        "type":"String"
-    }
+  "ansBy": {
+    "type": "String"
+  },
+  "tech": {
+    "type": "String"
+  },
+  "qus": {
+    "type": "String"
+  },
+  "answers": {
+    "type": ["String"]
+  },
+
+  "correctAns": {
+    "type": "String"
+  },
+  "userId": {
+    "type": "String"
+  },
+  "date": {
+    "type": "String"
+  }
 }

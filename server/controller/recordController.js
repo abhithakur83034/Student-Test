@@ -11,20 +11,18 @@ const getCurrentDate = () => {
   };
   
   const add = async (req, res) => {
-    console.log(req.body);
+    console.log("MediaRecorder",req.body);
   
     try {
       const currentDate = getCurrentDate();
   
       const addData = req.body.map(item => ({
         ansBy: item.ansBy,
-        tech: item.tech,
-        qus: item.qus,
-        answer: item.answer,
-        ans2: item.ans2,
-        ans3: item.ans3,
-        ans4: item.ans4,
-        userId: item.userId,
+        tech: req.body.tech,
+      qus: req.body.qus,
+      answers: req.body.answers,
+      correctAns: req.body.correctans,
+      userId: req.body.userId,
         date: currentDate, 
       }));
   
@@ -36,6 +34,8 @@ const getCurrentDate = () => {
   };
   
   const show = async (req, res) => {
+    console.log("MediaRecordefsghdsfghghgfr",req.body);
+
     try {
       const Show = await RecordModel.find(req.body);
       res.status(200).json({ Show, status: "success" });
