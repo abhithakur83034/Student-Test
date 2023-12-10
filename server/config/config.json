@@ -15,8 +15,8 @@
         "port": ""
       },
       "mongodb": {
-        "local": "mongodb://localhost:27017/online-exam",
-        "atlas": "",
+        "local": "",
+        "atlas": "mongodb+srv://abhishek:abhiatlas@cluster0.5lxkgpz.mongodb.net/online-exam",
         "cluster": ""
       }
     }

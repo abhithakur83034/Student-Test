@@ -6,7 +6,7 @@ const http = require('http');
 
 const server = http.createServer(app)
 
-const DBConnection = config.database.mongodb.local;
+const DBConnection = config.database.mongodb.atlas;
 
 PORT = 9000;
 
